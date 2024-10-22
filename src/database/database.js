@@ -10,7 +10,7 @@ async function connect() {
       console.log("Connection has been established successfully.");
 
       // Create User table
-      await User.sync({ alter: true })
+      await User.sync({ force: false })
         .then(() => {
           console.log("User table has been created successfully.");
         })
@@ -19,7 +19,7 @@ async function connect() {
         });
 
       // Create Activity table
-      await Activity.sync({ alter: true })
+      await Activity.sync({ force: false })
         .then(() => {
           console.log("Activity table has been created successfully.");
         })
@@ -28,7 +28,7 @@ async function connect() {
         });
 
       // Create Checklist table
-      await Checklist.sync({ alter: true })
+      await Checklist.sync({ force: false })
         .then(() => {
           console.log("Checklist table has been created successfully.");
         })
@@ -43,7 +43,7 @@ async function connect() {
 
 async function createTables() {
   await sequelize
-    .sync({ alter: true })
+    .sync({ force: false })
     .then(() => {
       console.log("Tables have been created successfully.");
     })
